@@ -1,0 +1,7 @@
+create external table employe_hbase(key string, name string, age string, salary string, dept st ring)
+
+ STORED BY 'org.apache.hadoop.hive.hbase. HBaseStorageHandler'
+
+ with serdeproperties("hbase.columns.mapping"=":key,personal: name, personal:age, professional: salary, professional:dept")
+
+ tblproperties("hbase.table.name"="employe");
