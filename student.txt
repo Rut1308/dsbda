@@ -1,0 +1,5 @@
+SELECT si.stu_id, si.stu_name, sm.subject, sm.marks
+FROM student_info si
+JOIN student_marks sm
+ON si.stu_id = sm.stu_id
+WHERE sm.marks > 80;

@@ -1,0 +1,34 @@
+CREATE TABLE emp_info (
+    emp_id INT,
+    emp_name STRING,
+    emp_designation STRING,
+    dept STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+CREATE TABLE emp_salary (
+    emp_id INT,
+    salary FLOAT,
+    leaves_taken INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+ALTER TABLE emp_info ADD COLUMNS (emp_join_year INT);
+
+external table 
+create a file first sample.txt 
+
+CREATE EXTERNAL TABLE emp_external (
+    emp_id INT,
+    emp_name STRING,
+    emp_designation STRING,
+    dept STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/home/cloudera/sample.txt';
