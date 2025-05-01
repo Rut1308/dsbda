@@ -1,0 +1,2 @@
+temporal iris= DATE(2024,1,1)+ROW()-1
+Temporal ADult==TEXT(RANDBETWEEN(DATE(2022,1,1), DATE(2022,12,31)), "yyyy-mm-dd")
