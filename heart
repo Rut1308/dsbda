@@ -1,0 +1,33 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.ensemble import RandomForestClassifier
+df.fillna(df.mode().iloc(0),inplace=True)
+df.describe()
+  df.drop_duplicates(inplace=True)
+print("Data Cleaning is Done")
+df.columns
+  df1=df[['age','sex','cp','trestbps']]
+df2=df[['trestbps','chol','fbs','restecg']]
+df3=pd.merge(df1,df2,on='trestbps',how='inner')
+df3.head(10)
+df=df.astype(str)
+encoder=LabelEncoder()
+for col in df.select_dtypes(include='object'):
+    df[col]=encoder.fit_transform(df[col])
+x=df.drop(columns=['age'])
+y=df['cp']
+y=y.round().astype(int)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+model=RandomForestClassifier()
+model.fit(x_train,y_train)
+y_pred=model.predict(x_test)
+y_pred
+accuracy=accuracy_score(y_test,y_pred)
+print(accuracy)
+if 'age' in df.columns:
+    df=df[(df['age']>0)&(df['age']<120)]
+if 'chol' in df.columns:
+    df=df[df['chol']>0]
